@@ -926,7 +926,7 @@ async function main() {
         return;
     }
 
-    console.log(`Found ${pdfUrls.length} PDF file(s).  Selecting two to parse.`);
+    console.log(`Found ${pdfUrls.length} PDF file(s).`);
 
     // Select the most recent PDF.  And randomly select one other PDF (avoid processing all PDFs
     // at once because this may use too much memory, resulting in morph.io terminating the current
