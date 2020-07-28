@@ -17,7 +17,7 @@ import didYouMean, * as didyoumean from "didyoumean2";
 
 sqlite3.verbose();
 
-const DevelopmentApplicationsUrl = "https://www.cooberpedy.sa.gov.au/page.aspx?u=291";
+const DevelopmentApplicationsUrl = "https://www.cooberpedy.sa.gov.au/council-information/council-documents/development-plan";
 const CommentUrl = "mailto:dccp@cpcouncil.sa.gov.au";
 
 declare const process: any;
@@ -60,7 +60,7 @@ async function insertRow(database, developmentApplication) {
                 console.error(error);
                 reject(error);
             } else {
-                console.log(`    Saved: application \"${developmentApplication.applicationNumber}\" with address \"${developmentApplication.address}\", description \"${developmentApplication.description}\", legal description \"${developmentApplication.legalDescription}\" and received date \"${developmentApplication.receivedDate}\" into the database.`);
+                console.log(`    Saved application \"${developmentApplication.applicationNumber}\" with address \"${developmentApplication.address}\", description \"${developmentApplication.description}\", legal description \"${developmentApplication.legalDescription}\" and received date \"${developmentApplication.receivedDate}\" to the database.`);
                 sqlStatement.finalize();  // releases any locks
                 resolve(row);
             }
@@ -926,7 +926,7 @@ async function main() {
         return;
     }
 
-    console.log(`Found ${pdfUrls.length} PDF file(s).  Selecting two to parse.`);
+    console.log(`Found ${pdfUrls.length} PDF file(s).`);
 
     // Select the most recent PDF.  And randomly select one other PDF (avoid processing all PDFs
     // at once because this may use too much memory, resulting in morph.io terminating the current
